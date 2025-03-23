@@ -12,7 +12,6 @@
 VL53L0X tofSensor;                                // ToF sensor object
 TM1637Display display(DISPLAY_CLK, DISPLAY_DIO);  // Display object
 
-
 // // Create a variable to store user-input minimum height
 int minHeight_cm = 0; 
 
@@ -62,10 +61,7 @@ void loop() {
       Serial.println(" cm - You can't ride!");
     }
     
-    while (true) {
-      // Infinite loop until the system is rebooted? might change let's see
-      // delay(10000);  
-    }
+    delay(30000);  
   } else {
     display.clear();          // Clear display when beam is not broken
     Serial.println("Determining height...");
