@@ -12,6 +12,7 @@ VL53L0X tofSensor;                                // ToF sensor object
 
 // // Create a variable to store user-input minimum height
 int minHeight_cm = 0; 
+int standHeight = 32;
 
 void setup() {
   Serial.begin(9600);  
@@ -44,6 +45,7 @@ void loop() {
     Serial.println("laser state low");
     int distance = tofSensor.readRangeSingleMillimeters(); // Read ToF in mm
     int height_cm = distance / 10; // Convert to cm
+    height_cm = height_cm + standHeight;
     delay(1000);
     
     // Check if height meets minimum requirement
